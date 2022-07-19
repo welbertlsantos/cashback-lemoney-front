@@ -57,7 +57,7 @@ export class CashBackListComponent implements OnInit {
     .then((candelete:boolean) => {
       if(candelete){
         this.message = {};
-        this.cashBackService.deleteCashBack(id).subscribe((responseApi:ResponseApi) => {
+        this.cashBackService.deleteCashBack(id).subscribe(() => {
             this.showMessage({
               type: 'success',
               text: `CashBack excluído com sucesso!`
