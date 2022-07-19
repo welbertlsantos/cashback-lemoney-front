@@ -22,7 +22,6 @@ export class CashBackNewComponent implements OnInit {
   shared: SharedService
   message : {};
   classCss : {};
-  idProduto: String
 
   constructor(
     private cashBackService: CashBackService,
@@ -66,7 +65,7 @@ export class CashBackNewComponent implements OnInit {
     this.classCss['alert-'+type] =  true;
  }
 
- register(){
+ register(f: NgForm){
   this.message = {};
   this.cashBackService.createOrReplaceCashBack(this.cashBack).subscribe((responseApi:ResponseApi) => {
       this.cashBack = new CashBack('',null,'','',0,'',0,0,null,null,'');
