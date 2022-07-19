@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Task as CashBack } from '../model/Task.model';
+import { CashBack } from '../model/Cashback.model';
 import { CASH_BACK_API } from './cashBackApi';
 import { SharedService } from './shared.service';
 
@@ -17,18 +17,17 @@ export class CashBackService {
 
    }
 
-  createCashBack(cash: CashBack) {
+  createOrReplaceCashBack(cashBack: CashBack) {
     const headers = this.headers();
     const url = `${CASH_BACK_API}/program-cashback`;
-    return this.http.post(url, cash, { "headers" : headers});
+
+    if (!cashBack.id) {
+      return this.http.post(url, cashBack, { "headers" : headers});
+    } else {
+      return this.http.put(`${url}/${cashBack.id}` , cashBack, { "headers": headers });
+    }
   }
 
-  updateCashBack(cash: CashBack) {
-    const headers = this.headers();
-    const url = `${CASH_BACK_API}/program-cashback/${cash.id}`;
-    return this.http.put(url , cash, { "headers": headers });
-  }
-  
   findAllCashBackByUser(idUsuario: string) {
     const headers = this.headers();
     const url = `${CASH_BACK_API}/program-cashback/${idUsuario}`;
@@ -44,6 +43,11 @@ export class CashBackService {
   deleteCashBack (id: String) {
     const headers = this.headers();
     return this.http.patch(`${CASH_BACK_API}/program-cashback/${id}`, { "headers": headers});
+  }
+
+  findById(id: string) {
+    const headers = this.headers();
+    return this.http.get(`${CASH_BACK_API}/program-cashback/program/${id}`, { "headers": headers });
   }
 
   private headers () {

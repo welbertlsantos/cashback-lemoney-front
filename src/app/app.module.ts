@@ -20,7 +20,6 @@ import { FormsModule} from '@angular/forms';
 import { AuthInterceptor } from './components/security/login/auth.interceptor';
 import { UserNewComponent } from './components/user-new/user-new.component';
 import { UserListComponent } from './components/user-list/user-list.component';
-import { TaskNewComponent } from './components/task-new/task-new.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { CashBackListComponent } from './components/cash-back-list/cash-back-list.component';
@@ -37,7 +36,6 @@ import { CashBackNewComponent } from './components/cash-back-new/cash-back-new.c
     LoginComponent,
     UserNewComponent,
     UserListComponent,
-    TaskNewComponent,
     TaskListComponent,
     TaskDetailComponent,
     CashBackListComponent,

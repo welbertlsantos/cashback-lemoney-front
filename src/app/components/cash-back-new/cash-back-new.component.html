@@ -1,1 +1,141 @@
 
+<div class="col-md-8" style="margin-left:0%">
+  <div class="box box-info">
+      <div class="box-header with-border">
+          <h3 class="box-title">Incluir CashBack</h3>
+      </div>
+      <form class="form-horizontal" #form="ngForm" (ngSubmit)="register()" novalidate>
+          <div [ngClass]="classCss" role="alert" *ngIf="message">
+              <strong>{{ message.text }}</strong>
+          </div>
+          <!-- idProduto-->        
+          <div class="form-group row">
+              <div [ngClass]="getFormGroupClass(identificadorProduto.invalid, identificadorProduto.dirty)">
+                  <label for="inputIdProduto" class="col-sm-2 control-label">Identificador do Produto</label>
+                  <div class="col-sm-10">
+                      <input type="text" 
+                          [(ngModel)]="cashBack.idProduto"
+                          name="idProduto"
+                          class="form-control" 
+                          id="inputIdProduto" 
+                          #identificadorProduto="ngModel"
+                          placeholder="Identificador do Produto"
+                          required>
+                      <span class="help-block" *ngIf="idProduto.invalid  && idProduto.dirty">Identificador do produto é obrigatório! </span>
+                  </div>
+              </div>
+          </div>
+          <!-- Descricao do Produto-->
+          <div class="form-group row">
+              <div [ngClass]="getFormGroupClass(descProduto.invalid,descProduto.dirty)">
+                  <label for="inputDescricaoProduto" class="col-sm-2 control-label">Descrição do Produto</label>
+                  <div class="col-sm-10">
+                      <textarea 
+                          [(ngModel)]="cashBack.descricaoProduto"
+                          name="descricaoProduto" 
+                          class="form-control"
+                          rows="3"
+                          id="inputDescricaoProduto" 
+                          placeholder="Descrição do Produto"
+                          #desProduto="ngModel" 
+                          required>
+                      </textarea>
+                      <span class="help-block" *ngIf="descProduto.invalid && descProduto.dirty">A Descrição do Produto é obrigatória</span>
+                  </div>
+              </div>
+          </div>
+          <!-- ValorProduto-->        
+          <div class="form-group row">
+              <div [ngClass]="getFormGroupClass(vlrProduto.invalid, vlrProduto.dirty)">
+                  <label for="inputValorProduto" class="col-sm-2 control-label">Valor do Produto</label>
+                  <div class="col-sm-10">
+                      <input type="text" 
+                          [(ngModel)]="cashBack.valorProduto"
+                          name="valorProduto"
+                          class="form-control" 
+                          id="inputValorProduto" 
+                          #vlrProduto="ngModel"
+                          placeholder="valor do Produto"
+                          required>
+                      <span class="help-block" *ngIf="valorProduto.invalid  && valorProduto.dirty">Valor do produto é obrigatório! </span>
+                  </div>
+              </div>
+          </div>
+          <!-- Tipo CashBack-->
+          <div class="form-group row">
+              <div [ngClass]="getFormGroupClass(tipoCashBack.invalid, tipoCashBack.dirty)">
+                  <label for="inputTipoCashBack" class="col-sm-2 control-label">Tipo</label>
+                  <div class="col-sm-10">
+                      <select [(ngModel)]="cashBack.tipoCashBack" 
+                          class="form-control select2" 
+                          name="tipoCashBack"
+                          id="inputTipoCashBack"
+                          #prioridade="ngModel"
+                          style="width: 100%;"
+                          required>
+                          <option>Percentual</option>
+                          <option>Valor</option>
+                      </select>
+                      <span class="help-block" *ngIf="tipoCashBack.invalid && tipoCashBack.dirty">Tipo de CashBack é obrigatório!</span>
+                  </div>
+              </div>
+          </div>
+          <!-- cashBack-->        
+          <div class="form-group row">
+              <div [ngClass]="getFormGroupClass(cashBackValue.invalid, cashBackValue.dirty)">
+                  <label for="inputCashBackValue" class="col-sm-2 control-label">CashBack</label>
+                  <div class="col-sm-10">
+                      <input type="text" 
+                          [(ngModel)]="cashBack.dataInicio"
+                          name="valorCashBack"
+                          class="form-control" 
+                          id="inputValorCashBack" 
+                          #titulo="ngModel"
+                          placeholder="Cash Back"
+                          required>
+                      <span class="help-block" *ngIf="cashBackValue.invalid  && cashBackValue.dirty">CashBack é obrigatório! </span>
+                  </div>
+              </div>
+          </div>
+          <!-- dataInicio-->
+          <div class="form-group row">
+              <div [ngClass]="getFormGroupClass(dataInicio.invalid, dataInicio.dirty)">
+                  <label for="inputDataInicio" class="col-sm-2 control-label">Data Início</label>
+                  <div class="col-sm-10">
+                      <input type="text" 
+                          data-inputmask="'alias': 'dd/mm/yyyy'" data-mask=""
+                          [(ngModel)]="cashBack.dataInicio"
+                          name="dataInicio"
+                          class="form-control" 
+                          id="inputDataInicio" 
+                          #titulo="ngModel"
+                          placeholder="Data Início "
+                          required>
+                      <span class="help-block" *ngIf="dataInicio.invalid  && dataInicio.dirty">Data de Início é obrigatório! </span>
+                  </div>
+              </div>
+          </div>
+          <!-- dataFim-->
+          <div class="form-group row">
+              <div [ngClass]="getFormGroupClass(dataFim.invalid, dataFim.dirty)">
+                  <label for="inputDataFim" class="col-sm-2 control-label">Data Final</label>
+                  <div class="col-sm-10">
+                      <input type="text" 
+                          data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="dd/mm/yyyy"
+                          [(ngModel)]="cashBack.dataFim"
+                          name="dataFim"
+                          class="form-control" 
+                          id="inputDataFim" 
+                          #titulo="ngModel"
+                          placeholder="Data Fim"
+                          required>
+                      <span class="help-block" *ngIf="dataFim.invalid  && dataFim.dirty">Data Final é obrigatória! </span>
+                  </div>
+              </div>
+          </div>
+          <div class="box-footer">
+              <button type="submit" [disabled]="!form.valid" (click) = "register()" class="btn btn-info pull-right">Gravar</button>
+          </div>
+      </form>
+  </div>
+</div>
