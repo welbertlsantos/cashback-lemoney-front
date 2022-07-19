@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CashBackServiceService } from './cash-back-service.service';
+import { CashBackService } from './cash-back-service';
 
 describe('CashBackServiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CashBackServiceService]
+      providers: [CashBackService]
     });
   });
 
-  it('should be created', inject([CashBackServiceService], (service: CashBackServiceService) => {
+  it('should be created', inject([CashBackService], (service: CashBackService) => {
     expect(service).toBeTruthy();
   }));
 });

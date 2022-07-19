@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CaskBackDetailComponent } from './cask-back-detail.component';
+import { CashBackNewComponent } from './cash-back-new.component';
 
-describe('CaskBackDetailComponent', () => {
-  let component: CaskBackDetailComponent;
-  let fixture: ComponentFixture<CaskBackDetailComponent>;
+describe('CashBackNewComponent', () => {
+  let component: CashBackNewComponent;
+  let fixture: ComponentFixture<CashBackNewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CaskBackDetailComponent ]
+      declarations: [ CashBackNewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CaskBackDetailComponent);
+    fixture = TestBed.createComponent(CashBackNewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

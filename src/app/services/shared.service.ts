@@ -26,10 +26,7 @@ export class SharedService {
      }
      
      return this.user.email != '';
-     
    }
-
-
   }
 
 

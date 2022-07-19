@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Task as CashBack } from '../model/Task.model';
-import { CASH_BACK_API } from './taskdesk.api';
+import { CASH_BACK_API } from './cashBackApi';
+import { SharedService } from './shared.service';
 
 
 @Injectable()
-export class CashBackServiceService {
+export class CashBackService {
 
-  constructor(private http: HttpClient) { }
+  public shared: SharedService
+
+  constructor(
+    private http: HttpClient
+  ) {
+    this.shared = SharedService.getInstance();
+
+   }
 
   createCashBack(cash: CashBack) {
     const headers = this.headers();
@@ -35,7 +43,7 @@ export class CashBackServiceService {
 
   deleteCashBack (id: String) {
     const headers = this.headers();
-    return this.http.patch(`${CASH_BACK_API}/${id}`, { "headers": headers});
+    return this.http.patch(`${CASH_BACK_API}/program-cashback/${id}`, { "headers": headers});
   }
 
   private headers () {

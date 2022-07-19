@@ -1,0 +1,41 @@
+<div [ngClass]="classCss" role="alert" *ngIf="message">
+  <strong>{{ message.text }}</strong>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Lista de CashBack</h3>
+      </div>  
+      <!-- opções de filtros -->
+      <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+          <tr>
+            <th>idProduto</th>
+            <th>Descricao Produto</th>
+            <th>Valor do Produto R$</th>
+            <th>Tipo CashBack</th>
+            <th>Valor CashBack R$</th>
+            <th>Valor CashBack Percentual</th>
+            <th>Data Início</th>
+            <th>Data Término</th>
+            <th style="width: 10px">&nbsp;</th> <!-- alterar--> 
+            <th style="width: 10px">&nbsp;</th> <!-- excluir-->
+          </tr>
+          <tr *ngFor="let cashBack of listCashBack">
+            <td>{{cashBack.idProduto}}</td>
+            <td>{{cashBack.descricaoProduto}}</td>
+            <td>{{cashBack.valorProduto}}</td>
+            <td>{{cashBack.tipoCashBack}}</td>
+            <td>{{cashBack.valorCashBackMoeda}}</td>
+            <td>{{cashBack.valorCashBackPercentual}}</td>
+            <td>{{cashBack.dataInicio | date: 'dd/MM/yyyy'}}</td>
+            <td>{{cashBack.dataFim | date: 'dd/MM/yyyy'}}</td>
+            <td><button class="btn btn-primary" (click)="edit(cashBack._id)">Alterar</button></td>
+            <td><button class="btn btn-danger" (click)="delete(cashBack._id)">Excluir</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
